@@ -27,3 +27,6 @@ def generate_message_from_chat_gpt(review_target_code, request_api_key):
     )
 
     return response.choices[0].message.content
+
+def generate_message_from_gemini(review_target_code, request_api_key):
+    return ""
