@@ -9,7 +9,7 @@ import prompt
 def generate_review(review_target_code, request_api_key, llm_type='chat_gpt'):
     if (llm_type == 'chat_gpt'):
         return generate_message_from_chat_gpt(review_target_code, request_api_key)
-    return ""
+    return generate_message_from_gemini(review_target_code, request_api_key)
 
 
 def generate_message_from_chat_gpt(review_target_code, request_api_key):
