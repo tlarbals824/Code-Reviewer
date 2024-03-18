@@ -1,11 +1,13 @@
 from openai import OpenAI
+import google.generativeai as genai
 
 import logging
 
 import prompt
 
+
 def generate_review(review_target_code, request_api_key, llm_type='chat_gpt'):
-    if(llm_type == 'chat_gpt'):
+    if (llm_type == 'chat_gpt'):
         return generate_message_from_chat_gpt(review_target_code, request_api_key)
     return ""
 
@@ -28,5 +30,14 @@ def generate_message_from_chat_gpt(review_target_code, request_api_key):
 
     return response.choices[0].message.content
 
+
 def generate_message_from_gemini(review_target_code, request_api_key):
-    return ""
+    genai.configure(api_key=request_api_key, )
+    model = genai.GenerativeModel("gemini-pro")
+
+    request_message = [
+        {'role': 'model', 'parts': [prompt.getCodeReviewSystemPrompt()]},
+        {'role': 'user', 'parts': [review_target_code]}
+    ]
+
+    return model.generate_content(request_message)
