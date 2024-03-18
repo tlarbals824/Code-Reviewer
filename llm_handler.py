@@ -21,10 +21,9 @@ def generate_message_from_chat_gpt(review_target_code, request_api_key):
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system",
-             "content": prompt.getChatGptSystemPrompt()},
+             "content": prompt.get_code_review_system_prompt()},
             {"role": "user",
-             "content": """
-            {0}""".format(review_target_code)}
+             "content": prompt.get_code_review_user_prompt()+review_target_code}
         ]
     )
 
@@ -32,12 +31,9 @@ def generate_message_from_chat_gpt(review_target_code, request_api_key):
 
 
 def generate_message_from_gemini(review_target_code, request_api_key):
-    genai.configure(api_key=request_api_key, )
+    genai.configure(api_key=request_api_key)
     model = genai.GenerativeModel("gemini-pro")
 
-    request_message = [
-        {'role': 'model', 'parts': [prompt.getCodeReviewSystemPrompt()]},
-        {'role': 'user', 'parts': [review_target_code]}
-    ]
+    request_message = prompt.get_code_review_system_prompt()+ prompt.get_code_review_user_prompt() + review_target_code
 
-    return model.generate_content(request_message)
+    return model.generate_content(request_message).text
