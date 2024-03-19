@@ -11,5 +11,7 @@ def get_code_review_system_prompt():
 def get_code_review_user_prompt():
     return """
     first summary provided code,
-    Analyze the given code for code smells and suggest improvements and provide a comprehensive report.
+    Review your provided code about method naming, logic flow, or handling exeception and provide a list of recommendations.
+    and also provide a brief explanation of the code.
+    At each stage, could you clearly specify the target and state the improvement results clearly in answer with code.
     """
