@@ -2,7 +2,6 @@ annotated-types==0.6.0
 ansible==6.7.0
 ansible-core==2.13.13
 anyio==4.3.0
-appnope==0.1.4
 astroid==3.1.0
 asttokens==2.4.1
 autopep8==2.0.4
@@ -14,7 +13,7 @@ charset-normalizer==3.3.2
 circuitbreaker==1.4.0
 contextvars==2.4
 cryptography==42.0.5
-cx_Oracle==8.3.0
+cx-Oracle==8.3.0
 Cython==3.0.9
 decorator==5.1.1
 dill==0.3.8
@@ -64,8 +63,8 @@ pyasn1-modules==0.3.0
 pycodestyle==2.11.1
 pycparser==2.21
 pydantic==2.6.4
-pydantic_core==2.16.3
-Pygments==2.17.2
+pydantic-core==2.16.3
+pygments==2.17.2
 pylint==3.1.0
 pyOpenSSL==24.0.0
 pytest==8.1.1
@@ -83,7 +82,7 @@ tomli==2.0.1
 tomlkit==0.12.4
 tqdm==4.66.2
 traitlets==5.14.1
-typing_extensions==4.10.0
+typing-extensions==4.10.0
 urllib3==1.26.18
 wcwidth==0.2.13
 wrapt==1.16.0
